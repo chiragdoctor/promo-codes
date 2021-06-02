@@ -1,0 +1,15 @@
+{
+  "name": "promo-codes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "npm run serve --prefix server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^6.2.0"
+  }
+}
