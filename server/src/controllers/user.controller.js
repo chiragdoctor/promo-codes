@@ -6,9 +6,6 @@ const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 dotenv.config();
 
-/******************************************************************************
- *                              User Controller
- ******************************************************************************/
 class UserController {
   getAllUsers = async (req, res, next) => {
     let userList = await UserModel.find();
@@ -35,23 +32,6 @@ class UserController {
     res.send(userWithoutPassword);
   };
 
-  getUserByuserName = async (req, res, next) => {
-    const user = await UserModel.findOne({ username: req.params.username });
-    if (!user) {
-      throw new HttpException(404, 'User not found');
-    }
-
-    const { password, ...userWithoutPassword } = user;
-
-    res.send(userWithoutPassword);
-  };
-
-  getCurrentUser = async (req, res, next) => {
-    const { password, ...userWithoutPassword } = req.currentUser;
-
-    res.send(userWithoutPassword);
-  };
-
   createUser = async (req, res, next) => {
     this.checkValidation(req);
     console.log('here I am ');
@@ -64,40 +44,6 @@ class UserController {
     }
 
     res.status(201).send('User was created!');
-  };
-
-  updateUser = async (req, res, next) => {
-    this.checkValidation(req);
-
-    await this.hashPassword(req);
-
-    const { confirm_password, ...restOfUpdates } = req.body;
-
-    // do the update query and get the result
-    // it can be partial edit
-    const result = await UserModel.update(restOfUpdates, req.params.id);
-
-    if (!result) {
-      throw new HttpException(404, 'Something went wrong');
-    }
-
-    const { affectedRows, changedRows, info } = result;
-
-    const message = !affectedRows
-      ? 'User not found'
-      : affectedRows && changedRows
-      ? 'User updated successfully'
-      : 'Updated faild';
-
-    res.send({ message, info });
-  };
-
-  deleteUser = async (req, res, next) => {
-    const result = await UserModel.delete(req.params.id);
-    if (!result) {
-      throw new HttpException(404, 'User not found');
-    }
-    res.send('User has been deleted');
   };
 
   userLogin = async (req, res, next) => {
@@ -143,7 +89,4 @@ class UserController {
   };
 }
 
-/******************************************************************************
- *                               Export
- ******************************************************************************/
 module.exports = new UserController();
