@@ -25,4 +25,13 @@ describe('Services Route', () => {
     expect(Array.isArray(res.body)).to.be.eql(true);
     expect(res.body.length).to.be.greaterThan(0);
   });
+
+  it('should get services list by name', async () => {
+    const res = await request
+      .set('Authorization', 'Bearer ' + token)
+      .get('/api/v1/services/by-name?serviceName=mic');
+    expect(res.status).to.be.eql(200);
+    expect(Array.isArray(res.body)).to.be.eql(true);
+    expect(res.body.length).to.be.eql(1);
+  });
 });

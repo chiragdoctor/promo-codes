@@ -13,7 +13,6 @@ class ServiceModel {
 
     const { columnSet, values } = multipleColumnSet(params);
     sql += ` WHERE ${columnSet}`;
-
     return await query(sql, [...values]);
   };
 }

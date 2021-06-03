@@ -14,5 +14,15 @@ class ServiceController {
     }
     res.send(serviceList);
   };
+
+  getServiceListByName = async (req, res, next) => {
+    const serviceList = await ServiceModel.find({
+      name: req.query.serviceName,
+    });
+    if (!serviceList) {
+      return res.send([]);
+    }
+    res.send(serviceList);
+  };
 }
 module.exports = new ServiceController();
