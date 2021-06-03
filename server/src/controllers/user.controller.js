@@ -34,7 +34,6 @@ class UserController {
 
   createUser = async (req, res, next) => {
     this.checkValidation(req);
-    console.log('here I am ');
     await this.hashPassword(req);
     const { confirm_password, ...otherBody } = req.body;
     const result = await UserModel.create(otherBody);
