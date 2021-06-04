@@ -53,13 +53,15 @@ class UserController {
     const user = await UserModel.findOne({ email });
 
     if (!user) {
-      throw new HttpException(401, 'Unable to login!');
+      res.status(401);
+      return res.send('User not found!!');
     }
 
     const isMatch = await bcrypt.compare(pass, user.password);
 
     if (!isMatch) {
-      throw new HttpException(401, 'Incorrect password!');
+      res.status(401);
+      return res.send('Incorrect password!');
     }
 
     // user matched!
