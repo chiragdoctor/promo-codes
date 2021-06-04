@@ -4,7 +4,7 @@ import { setLoggedInUser } from '../redux/user/user.action';
 import { selectUser } from '../redux/user/user.selector';
 import { loginUser } from '../services/user';
 import './Login.css';
-const Login = () => {
+const Login = props => {
   const dispatch = useDispatch();
 
   const [loginForm, setLoginForm] = useState({
@@ -21,6 +21,7 @@ const Login = () => {
       if (loginForm.email.length > 0 && loginForm.password.length > 0) {
         const user = await loginUser({ ...loginForm });
         dispatch(setLoggedInUser(user));
+        props.history.push('/');
       }
     } catch (err) {
       console.error(err);
