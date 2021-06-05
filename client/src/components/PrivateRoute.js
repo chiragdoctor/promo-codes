@@ -5,12 +5,11 @@ import { selectUser } from '../redux/user/user.selector';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const user = useSelector(selectUser);
-  const { token } = user;
   return (
     <Route
       {...rest}
       render={props =>
-        !token ? <Redirect to='/login' /> : <Component {...props} />
+        !user ? <Redirect to='/login' /> : <Component {...props} />
       }
     />
   );
