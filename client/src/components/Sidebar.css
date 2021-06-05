@@ -1,0 +1,26 @@
+.sidebar-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background: #1B1D29;
+    width: 80px;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.logo {
+    padding: 20px 20px;
+    margin-bottom: 48px;
+}
+
+.sidebar-circle {
+    margin-bottom: 48px;
+}
+
+.circle {
+    position: absolute;
+    top: 15%;
+    left: 33%;
+}
