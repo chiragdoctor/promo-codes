@@ -1,0 +1,14 @@
+.header-container {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    width: calc(100% - 80px);
+    height: 80px;
+    left: 80px;
+    top: 0px;
+    background: #FFFFFF;
+}
+
+.username {
+    padding: 25px;
+}
