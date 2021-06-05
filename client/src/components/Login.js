@@ -29,7 +29,7 @@ const Login = props => {
   };
 
   return (
-    <div className='container'>
+    <div className='login-container'>
       <div className='d-flex justify-content-center h-100'>
         <div className='card'>
           <div className='card-header'>

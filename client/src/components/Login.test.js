@@ -25,12 +25,15 @@ describe('Login Component', () => {
   store = mockStore(initialState);
   store.dispatch = jest.fn();
   let loginUserSpy;
-
+  const history = {
+    push: jest.fn(),
+  };
   beforeEach(() => {
     jest.clearAllMocks();
+
     wrapper = mount(
       <Provider store={store}>
-        <Login />
+        <Login history={history} />
       </Provider>,
     );
     loginUserSpy = jest
