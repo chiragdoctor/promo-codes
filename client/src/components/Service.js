@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Copy from './Copy';
 
 import './Service.css';
 const Service = ({ service, handleActiveBonusClick, isBonusActivated }) => {
+  const [copied, setCopied] = useState(false);
   return (
     <div className='service-container'>
       <div className='card card-container'>
@@ -23,8 +25,16 @@ const Service = ({ service, handleActiveBonusClick, isBonusActivated }) => {
                   disabled
                   value={service?.promo_code}
                 />
-                <Copy />
+                <CopyToClipboard
+                  text={service?.promo_code}
+                  onCopy={() => setCopied(true)}
+                >
+                  <span>
+                    <Copy />
+                  </span>
+                </CopyToClipboard>
               </div>
+              {copied && <div>Copied!!</div>}
             </div>
             <div className='d-flex my-4 mx-4'>
               <button
