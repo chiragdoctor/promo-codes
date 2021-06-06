@@ -1,0 +1,15 @@
+@media (min-width: 200px) {
+    .dashboard-container {
+        position: absolute;
+        top: 120px;
+        left: 120px;
+    }
+}
+
+.heading {
+    line-height: 46.22px;
+    font-weight: 300;
+    font-size: 39px;
+    width: 150px;
+    margin-bottom: 40px;
+}

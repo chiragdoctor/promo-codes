@@ -1,0 +1,52 @@
+.title {
+    width: 35px;
+    height: 17px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 16px;
+    display: flex;
+    align-items: flex-end;
+    letter-spacing: 0.015em;
+    text-transform: uppercase;
+    color: #7D7D7D;
+    border-radius: 3px;
+}
+
+.form-container {
+    margin-top: 7px;
+}
+
+.filter-input {
+    width: 300px;
+    height: 48px;
+    background: #FFFFFF;
+    box-sizing: border-box;
+    border: 1px solid #CFD2D9;
+    border-radius: 4px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 22px;
+    color: #262626;
+    padding: 10px;
+}
+
+.filter-input:focus {
+    border: 1px solid #2F80ED;
+}
+
+.reset-btn {
+    width: 149px;
+    height: 48px;
+    background: #F5F7FA;
+    border: 1px solid #CFD2D9;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin-left: 9px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 19px;
+    line-height: 28px;
+    color: #262626;
+}

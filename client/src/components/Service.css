@@ -1,0 +1,66 @@
+.service-container {
+    margin-bottom: 24px;
+}
+
+.card-container {
+    width: 100% !important;
+    height: 120px;
+}
+
+/* @media (max-width: 956px) {
+    .card-container {
+        width: 100% !important;
+    }
+} */
+
+.service-title {
+    height: 43px;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 29px;
+    line-height: 42px;
+    color: #000000;
+}
+
+.service-description {
+    margin-top: 5px;
+    height: 22px;
+    width: 100%;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    color: #7D7D7D;
+}
+
+.promo-input {
+    margin-top: 7px;
+    width: 300px;
+    height: 48px;
+    background: #FFFFFF;
+    box-sizing: border-box;
+    border: 1px solid #CFD2D9;
+    border-radius: 4px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 22px;
+    color: #262626;
+    padding: 10px;
+}
+
+.copy-text {
+    position: absolute;
+    top: 18px;
+    left: 270px;
+}
+
+.activate-bonus {
+    width: 300px;
+    height: 48px;
+    background: #0085FF;
+    font-size: 19px;
+    text-align: center;
+    color: #FFFFFF;
+    border-radius: 4px;
+    border: none;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
+import Footer from './components/Footer';
 import Header from './components/Header';
 import Login from './components/Login';
 import PrivateRoute from './components/PrivateRoute';
@@ -16,6 +17,7 @@ const App = () => {
           <Route exact path='/login' component={Login} />
           <PrivateRoute exact path='/' component={Dashboard} />
         </Switch>
+        <Footer />
       </Router>
     </div>
   );
