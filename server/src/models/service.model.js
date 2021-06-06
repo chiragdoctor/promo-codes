@@ -15,6 +15,16 @@ class ServiceModel {
     sql += ` WHERE ${columnSet}`;
     return await query(sql, [...values]);
   };
+
+  findWithPage = async (page = 1) => {
+    const limit = 3;
+    const offset = (page - 1) * limit;
+
+    let sql = `SELECT * FROM ${this.tableName}`;
+
+    sql += ` LIMIT ${limit} OFFSET ${offset}`;
+    return await query(sql);
+  };
 }
 
 module.exports = new ServiceModel();

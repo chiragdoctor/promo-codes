@@ -8,9 +8,10 @@ dotenv.config();
 
 class ServiceController {
   getAllServices = async (req, res, next) => {
-    let serviceList = await ServiceModel.find();
+    const page = req.query.page;
+    let serviceList = await ServiceModel.findWithPage(page);
     if (!serviceList.length) {
-      throw new HttpException(404, 'Services not found');
+      return res.send([]);
     }
     res.send(serviceList);
   };
