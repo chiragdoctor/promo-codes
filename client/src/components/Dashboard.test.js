@@ -6,9 +6,16 @@ import thunk from 'redux-thunk';
 import Dashboard from './Dashboard';
 import Filter from './Filter';
 import ServiceList from './ServiceList';
+import * as service from '../services/service';
 
 describe('Dashboard Component', () => {
   let wrapper;
+  let getAllServicesSpy = jest.fn();
+  const mockServices = [
+    { name: 'abc', description: 'this is desc', promo_code: 'promocode' },
+    { name: 'efg', description: 'this is desc', promo_code: 'promocode' },
+    { name: 'xyz', description: 'this is desc', promo_code: 'promocode' },
+  ];
   let store;
   let initialState = {
     users: {
@@ -16,13 +23,22 @@ describe('Dashboard Component', () => {
         username: 'abc',
       },
     },
+    services: {
+      services: [
+        { name: 'abc', description: 'this is desc', promo_code: 'promocode' },
+        { name: 'efg', description: 'this is desc', promo_code: 'promocode' },
+        { name: 'xyz', description: 'this is desc', promo_code: 'promocode' },
+      ],
+    },
   };
   const mockStore = configureStore([thunk]);
   store = mockStore(initialState);
   store.dispatch = jest.fn();
   beforeEach(() => {
     jest.clearAllMocks();
-
+    getAllServicesSpy = jest
+      .spyOn(service, 'getAllServices')
+      .mockReturnValue(Promise.resolve(mockServices));
     wrapper = mount(
       <Provider store={store}>
         <Dashboard />

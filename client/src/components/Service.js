@@ -21,7 +21,7 @@ const Service = ({ service }) => {
                   id='promocode'
                   className='promo-input'
                   disabled
-                  value={service?.promocode}
+                  value={service?.promo_code}
                 />
                 <Copy />
               </div>

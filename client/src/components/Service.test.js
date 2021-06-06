@@ -3,12 +3,12 @@ import { mount } from 'enzyme';
 import Service from './Service';
 import Copy from './Copy';
 
-describe('Filter Component', () => {
+describe('Service Component', () => {
   let wrapper;
   const mockService = {
     name: 'AppVision.com',
     description: 'this is description',
-    promocode: 'itpromocode',
+    promo_code: 'itpromocode',
   };
   beforeEach(() => {
     jest.clearAllMocks();
@@ -35,7 +35,7 @@ describe('Filter Component', () => {
   it('should render input for displaying promocode', () => {
     const input = wrapper.find('input[name="promocode"]');
     expect(input.exists()).toBe(true);
-    expect(input.props().value).toBe(mockService.promocode);
+    expect(input.props().value).toBe(mockService.promo_code);
   });
 
   it('should render copy button to copy promocode', () => {
