@@ -16,3 +16,18 @@ export const getAllServices = () => {
       throw error;
     });
 };
+
+export const getServicesByName = searchQuery => {
+  return axios
+    .get(`${SERVER_ADDR}/services/by-name?serviceName=${searchQuery}`, {
+      headers: {
+        'Authorization': `Bearer ${user.token}`,
+      },
+    })
+    .then(({ data }) => {
+      return data;
+    })
+    .catch(error => {
+      throw error;
+    });
+};
