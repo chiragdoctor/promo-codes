@@ -23,8 +23,9 @@ To run this project locally we need to do the following
   - `mysql -u root -p < create-user-db.sql`
   - `mysql -u root -p < create-service-db.sql`
   - `mysql -u root -p < create-activate-bonus-db.sql`
-- Once database has been created and seeded using the scripts, you will need to create a user, which will be then authorized to view the dashboard.
+- Once database has been created and seeded using the scripts, you will need to create a user, which will be then authenticated and authorized to view the dashboard.
 - You will also need to create or update the `.env` file with following 
+```
 DB Configurations
     HOST=localhost
     DB_USER=root
@@ -33,6 +34,7 @@ DB Configurations
 Local runtime configs
     PORT=5000
     SECRET_JWT=supersecret
+```
 
 - You can use a client like POSTMAN to create the user, example endpoint is given below
   -  `localhost:5000/api/v1/users`
