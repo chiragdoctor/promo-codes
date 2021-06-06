@@ -30,18 +30,6 @@ export default function InfiniteLoaderWrapper({
   // Every row is loaded except for our loading indicator row.
   const isItemLoaded = index => !hasNextPage || index < items.length;
 
-  // Render an item or a loading indicator.
-  //   const Item = ({ index, style }) => {
-  //     let content;
-  //     if (!isItemLoaded(index)) {
-  //       content = 'Loading...';
-  //     } else {
-  //       content = items[index].name;
-  //     }
-
-  //     return <div style={style}>{content}</div>;
-  //   };
-
   const renderListRow = virtualScrollProps => {
     const { index, style } = virtualScrollProps;
     if (!isItemLoaded(index)) {
