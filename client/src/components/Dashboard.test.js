@@ -7,14 +7,20 @@ import Dashboard from './Dashboard';
 import Filter from './Filter';
 import ServiceList from './ServiceList';
 import * as service from '../services/service';
+import * as bonus from '../services/bonus';
 
 describe('Dashboard Component', () => {
   let wrapper;
   let getAllServicesSpy = jest.fn();
+  let getActivateBonusForUserSpy = jest.fn();
   const mockServices = [
     { name: 'abc', description: 'this is desc', promo_code: 'promocode' },
     { name: 'efg', description: 'this is desc', promo_code: 'promocode' },
     { name: 'xyz', description: 'this is desc', promo_code: 'promocode' },
+  ];
+  const mockBonus = [
+    { userId: '1', serviceId: '1' },
+    { userId: '1', serviceId: '2' },
   ];
   let store;
   let initialState = {
@@ -39,6 +45,9 @@ describe('Dashboard Component', () => {
     getAllServicesSpy = jest
       .spyOn(service, 'getAllServices')
       .mockReturnValue(Promise.resolve(mockServices));
+    getActivateBonusForUserSpy = jest
+      .spyOn(bonus, 'getActivateBonusForUser')
+      .mockReturnValue(Promise.resolve(mockBonus));
     wrapper = mount(
       <Provider store={store}>
         <Dashboard />

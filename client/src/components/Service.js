@@ -2,7 +2,7 @@ import React from 'react';
 import Copy from './Copy';
 
 import './Service.css';
-const Service = ({ service }) => {
+const Service = ({ service, handleActiveBonusClick, isBonusActivated }) => {
   return (
     <div className='service-container'>
       <div className='card card-container'>
@@ -27,7 +27,15 @@ const Service = ({ service }) => {
               </div>
             </div>
             <div className='d-flex my-4 mx-4'>
-              <button className='activate-bonus'>Activate bonus</button>
+              <button
+                className={
+                  isBonusActivated ? 'activated-bonus' : 'activate-bonus'
+                }
+                disabled={isBonusActivated}
+                onClick={() => handleActiveBonusClick(service.id)}
+              >
+                {isBonusActivated ? 'Activated' : 'Activate bonus'}
+              </button>
             </div>
           </div>
         </div>

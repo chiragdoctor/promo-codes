@@ -10,9 +10,16 @@ describe('Service Component', () => {
     description: 'this is description',
     promo_code: 'itpromocode',
   };
+  let handleActiveBonusClickSpy = jest.fn();
   beforeEach(() => {
     jest.clearAllMocks();
-    wrapper = mount(<Service service={mockService} />);
+    wrapper = mount(
+      <Service
+        service={mockService}
+        handleActiveBonusClick={handleActiveBonusClickSpy}
+        isBonusActivated={false}
+      />,
+    );
   });
 
   it('should render service component', () => {
@@ -47,5 +54,18 @@ describe('Service Component', () => {
     const btn = wrapper.find('.activate-bonus');
     expect(btn.exists()).toBe(true);
     expect(btn.text()).toEqual('Activate bonus');
+  });
+
+  it('should render activated is bonus is activated for service', () => {
+    wrapper = mount(
+      <Service
+        service={mockService}
+        handleActiveBonusClick={handleActiveBonusClickSpy}
+        isBonusActivated={true}
+      />,
+    );
+    const btn = wrapper.find('.activated-bonus');
+    expect(btn.exists()).toBe(true);
+    expect(btn.text()).toEqual('Activated');
   });
 });
