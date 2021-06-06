@@ -5,6 +5,7 @@ import Copy from './Copy';
 import './Service.css';
 const Service = ({ service, handleActiveBonusClick, isBonusActivated }) => {
   const [copied, setCopied] = useState(false);
+
   return (
     <div className='service-container'>
       <div className='card card-container'>

@@ -2,9 +2,9 @@ import axios from 'axios';
 import { SERVER_ADDR } from '../constants';
 const user = JSON.parse(localStorage.getItem('user'));
 
-export const getAllServices = () => {
+export const getAllServices = page => {
   return axios
-    .get(`${SERVER_ADDR}/services`, {
+    .get(`${SERVER_ADDR}/services?page=${page}`, {
       headers: {
         'Authorization': `Bearer ${user.token}`,
       },

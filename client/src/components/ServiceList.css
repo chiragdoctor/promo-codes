@@ -1,5 +1,5 @@
 .service-list-container {
     margin-top: 24px;
-    height: 520px;
-    overflow: auto;
+    height: calc(100vh - 500px) !important;
+    width: 1400px;
 }
