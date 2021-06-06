@@ -6,7 +6,7 @@
   "scripts": {
     "serve": "nodemon --exec babel-node src/server.js",
     "dev": "nodemon --watch src",
-    "test": "mocha src/test -- --watch"
+    "test": "mocha src/test"
   },
   "keywords": [],
   "author": "",
