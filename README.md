@@ -71,7 +71,7 @@ To run the frontend project you need to follow below instructions
 To run the test on client side you can run the script `npm test`
 
 ## Run both projects
-In order to run both projects simultaneously you can go to the root ./ folder of the app and run the command `npm run project`
+In order to run both projects simultaneously you can go to the root ./ folder of the app and and run `npm i` and then run the command `npm run project`
 
 You can also run client and server project from the route location using command 
 - client --> `npm run client`
